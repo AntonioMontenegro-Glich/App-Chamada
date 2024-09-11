@@ -10,8 +10,8 @@ exports.getAllPresencas = async (req, res) => {
 };
 
 exports.createPresenca = async (req, res) => {
-    const { nome, mensagem_do_aluno, location, photo } = req.body;
-    const newPresenca = new Presenca({ nome, mensagem_do_aluno, location, photo });
+    const { nome, resumo_aula, mensagem_do_aluno, location, photo } = req.body;
+    const newPresenca = new Presenca({ nome, resumo_aula, mensagem_do_aluno, location, photo });
 
     try {
         const savePresenca = await newPresenca.save();

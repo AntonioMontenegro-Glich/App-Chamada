@@ -2,6 +2,7 @@ const mongoose = require('mongoose');
 
 const PresencaSchema = new mongoose.Schema({
     nome: { type: String, required: true },
+    resumo_aula: { type: String, required: true },
     mensagem_do_aluno: { type: String, required: true },
     location: {
         latitude: { type: Number, required: true },
