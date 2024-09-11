@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Plantation App</title>
+    <title>Lista de Presença</title>
     <link rel="manifest" href="manifest.json">
     <link rel="stylesheet" href="styles.css">
 </head>
@@ -11,7 +11,7 @@
     <nav>
         <div class="menu">
             <div class="hamburger" onclick="toggleMenu()">☰</div>
-            <h1>Plantation App</h1>
+            <h1>Lista de Presença</h1>
         </div>
         <div class="links" id="menuLinks">
             <a href="index.html">Home</a>
@@ -21,15 +21,16 @@
         </div>
     </nav>
 
-    <form id="plantation-form">
-        <h2>Adicionar Plantação</h2>
-        <input type="text" id="name" placeholder="Nome da plantação" required>
-        <input type="text" id="description" placeholder="Descrição" required>
+    <form id="Lista de Presença-form">
+        <h2>Marque sua Presença</h2>
+        <input type="text" id="nome" placeholder="Seu nome:" required>
+        <input type="text" id="resumo_aula" placeholder="Resumo Aula:" required>
+        <input type="text" id="mensagem_do_aluno" placeholder="Mensagem do Aluno:" required>
         <input type="file" id="photo" accept="image/*" required>
-        <button type="submit">Adicionar Plantação</button>
+        <button type="submit">Marcar Presença</button>
     </form>
 
-    <div id="plantations-list"></div>
+    <div id="Presença-list"></div>
 
     <script src="app.js"></script>
     <script>
