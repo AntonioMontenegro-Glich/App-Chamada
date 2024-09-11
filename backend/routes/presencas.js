@@ -1,6 +1,6 @@
 const express = require('express');
 const router = express.Router();
-const PresencasController = require('../controllers/presencasController');
+const PresencasController = require('../controllers/PresencasController');
 
 router.get('/', PresencasController.getAllPresencas);
 router.post('/', presencasController.createPresenca);
