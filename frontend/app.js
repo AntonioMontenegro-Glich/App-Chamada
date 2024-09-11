@@ -1,8 +1,9 @@
-document.getElementById('plantation-form').addEventListener('submit', async function(event) {
+document.getElementById('Lista de Presença-form').addEventListener('submit', async function(event) {
     event.preventDefault();
 
-    const name = document.getElementById('name').value;
-    const description = document.getElementById('description').value;
+    const nome = document.getElementById('nome').value;
+    const resumo_aula = document.getElementById('resumo_aula').value;
+    const mensagem_do_aluno = document.getElementById('mensagem_do_aluno').value;
     const photoInput = document.getElementById('photo');
     const photo = await convertImageToBase64(photoInput.files[0]);
 
@@ -13,19 +14,19 @@ document.getElementById('plantation-form').addEventListener('submit', async func
         };
 
         try {
-            const response = await fetch('http://127.0.0.1:3000/api/plantations', { // Certifique-se de que a rota da API está correta
+            const response = await fetch('http://127.0.0.1:3000/api/presencas', { // Certifique-se de que a rota da API está correta
                 method: 'POST',
                 headers: {
                     'Content-Type': 'application/json'
                 },
-                body: JSON.stringify({ name, description, location, photo })
+                body: JSON.stringify({ nome, resumo_aula, mensagem_do_aluno, location, photo })
             });
 
             if (response.ok) {
-                document.getElementById('plantation-form').reset();
-                fetchPlantations();
+                document.getElementById('Lista de Presença-form').reset();
+                fetchPresencas();
             } else {
-                console.error('Erro ao adicionar plantação:', response.statusText);
+                console.error('Erro ao adicionar presença', response.statusText);
             }
         } catch (error) {
             console.error('Erro ao conectar com a API:', error);
@@ -42,14 +43,14 @@ async function convertImageToBase64(file) {
     });
 }
 
-async function fetchPlantations() {
+async function fetchPresencas() {
     try {
-        const response = await fetch('http://127.0.0.1:3000/api/plantations'); // Certifique-se de que a rota da API está correta
+        const response = await fetch('http://127.0.0.1:3000/api/presencas'); // Certifique-se de que a rota da API está correta
         if (!response.ok) {
-            throw new Error('Erro ao buscar plantações');
+            throw new Error('Erro ao buscar Presença');
         }
-        const plantations = await response.json();
-        const list = document.getElementById('plantations-list');
+        const presencas = await response.json();
+        const list = document.getElementById('Presença-list');
         list.innerHTML = '';
         plantations.forEach(p => {
             const item = document.createElement('div');
@@ -61,8 +62,8 @@ async function fetchPlantations() {
             list.appendChild(item);
         });
     } catch (error) {
-        console.error('Erro ao carregar plantações:', error);
+        console.error('Erro ao carregar Presenças:', error);
     }
 }
 
-fetchPlantations();
+fetchPresencas();
