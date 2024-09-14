@@ -13,5 +13,5 @@ const PresencaSchema = new mongoose.Schema({
     photo: { type: String, required: true },
     created_at: { type: Date, default: Date.now }
 });
-
+//Exportando o Esquema para utilizar nas outras partes do Meu Sistema como no meu Controlador que irá fazer operações com o esquema
 module.exports = mongoose.model('Presenca', PresencaSchema);
