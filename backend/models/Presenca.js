@@ -1,3 +1,4 @@
+//Importando o Banco de Dados para Fazer os Esquemas 
 const mongoose = require('mongoose');
 
 const PresencaSchema = new mongoose.Schema({
