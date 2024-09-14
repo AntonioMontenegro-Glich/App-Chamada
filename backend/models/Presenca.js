@@ -1,6 +1,7 @@
 //Importando o Banco de Dados para Fazer os Esquemas 
 const mongoose = require('mongoose');
-
+//Os atributos utilizados do sistema estarão atribuidos dentro de chaves
+//Tudo que irei exibir na tela do meu sistema estará configurado com o tipo(type) e se ela é obrigatório(required: true or false)
 const PresencaSchema = new mongoose.Schema({
     nome: { type: String, required: true },
     resumo_aula: { type: String, required: true },
