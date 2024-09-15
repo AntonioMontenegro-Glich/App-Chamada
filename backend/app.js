@@ -1,3 +1,9 @@
+////Importando express configuração
+//Importando mongoose(bd) para configuração
+//Importando cors para configuração
+//Importando bodyparser para configuração
+//Puxando configurações do dotenv
+//Criando variável 'app' para usar o express para configuração das rotas nas outras dependencias
 const express = require('express');
 const mongoose = require('mongoose');
 const cors = require('cors');
