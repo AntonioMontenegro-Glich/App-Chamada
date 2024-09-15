@@ -16,8 +16,6 @@ app.use(express.static('public'));
 mongoose.connect(process.env.MONGO_URI)
     .then(() => console.log('MongoDB Connected'))
     .catch(err => console.log(err));
-
-
 // Rotas
 const PresencasRoute = require('./routes/presencas');
 app.use('/api/presencas', PresencasRoute);
