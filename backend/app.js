@@ -27,5 +27,7 @@ const PresencasRoute = require('./routes/presencas');
 app.use('/api/presencas', PresencasRoute);
 
 // Porta
+//Process.env.port(especificamente para acessar variáveis de ambiente)
+//.listen(escuta a variável)
 const PORT = process.env.PORT || 3000;
 app.listen(PORT, () => console.log(`Server running on port ${PORT}`));
