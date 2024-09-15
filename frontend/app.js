@@ -52,7 +52,7 @@ async function fetchPresencas() {
         const presencas = await response.json();
         const list = document.getElementById('Presença-list');
         list.innerHTML = '';
-        plantations.forEach(p => {
+        presencas.forEach(p => {
             const item = document.createElement('div');
             item.innerHTML = `
                 <h3>${p.name}</h3>

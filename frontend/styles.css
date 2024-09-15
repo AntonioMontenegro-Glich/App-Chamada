@@ -54,6 +54,7 @@ nav .links {
     display: none;
     flex-direction: column;
     align-items: center;
+    border-radius: 15px; 
     width: 100%;
     background-color: #b10;
 }
