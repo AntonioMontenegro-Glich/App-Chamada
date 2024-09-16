@@ -1,3 +1,6 @@
+// Parte do código aonde farei a conexão do backend e frontend
+// Primeiro preciso puxar o formulário que estou exibindo na minha tela aonde os dados estão sendo recebidos
+// document.getElementById função para pegar elementos do código pelo id já determinado
 document.getElementById('Lista de Presença-form').addEventListener('submit', async function(event) {
     event.preventDefault();
 
@@ -42,7 +45,7 @@ async function convertImageToBase64(file) {
         reader.readAsDataURL(file);
     });
 }
-
+// Função fetch(faz a mesma função do verbo get) que puxa algum elemento, nesse caso as Presencas do modelo
 async function fetchPresencas() {
     try {
         const response = await fetch('http://127.0.0.1:3000/api/presencas'); // Certifique-se de que a rota da API está correta
@@ -52,7 +55,7 @@ async function fetchPresencas() {
         const presencas = await response.json();
         const list = document.getElementById('Presença-list');
         list.innerHTML = '';
-        plantations.forEach(p => {
+        presencas.forEach(p => {
             const item = document.createElement('div');
             item.innerHTML = `
                 <h3>${p.name}</h3>

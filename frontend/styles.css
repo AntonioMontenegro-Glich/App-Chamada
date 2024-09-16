@@ -54,6 +54,7 @@ nav .links {
     display: none;
     flex-direction: column;
     align-items: center;
+    border-radius: 15px; 
     width: 100%;
     background-color: #b10;
 }
@@ -64,6 +65,7 @@ nav .links a {
     color:#fff;
     width: 100%;
     border-bottom: 1px solid #fff;
+    box-sizing: border-box; /* Inclui o padding e a borda no tamanho do link */
 }
 
 nav .links.show {
