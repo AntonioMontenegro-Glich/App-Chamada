@@ -24,7 +24,7 @@ exports.createPresenca = async (req, res) => {
 
     try {
         //Função await usada para fazer o sistema esperar o sistema estabilizar e receber os dados e depois começar o processo
-        const savePresenca = await newPresenca.save();
+        const savedPresenca = await newPresenca.save();
         res.status(201).json(savedPresenca);
     } catch (err) {
         res.status(400).json({ message: err.message });
@@ -49,10 +49,15 @@ exports.updatePresenca = async (req, res) => {
 //Função await usada para fazer o sistema esperar o sistema estabilizar e receber os dados e depois começar o processo
 //Usando função .findByIdAndDelete para procurar pelo id da presença a ser deletada e deleta
 //.findByIdAndDelete(req de requisição.params.id)
+// Função para deletar uma presença
 exports.deletePresenca = async (req, res) => {
     try {
-        await Presenca.findByIdAndDelete(req.params.id);
-        res.json({ message: 'Presenca deletada' });
+        const presenca = await Presenca.findById(req.params.id);
+        if (!presenca) {
+            return res.status(404).json({ message: 'Presença não registrada' });
+        }
+        await presenca.remove();
+        res.json({ message: 'Presença deletada' });
     } catch (err) {
         res.status(500).json({ message: err.message });
     }
