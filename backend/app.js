@@ -19,7 +19,8 @@ app.use(bodyParser.urlencoded({ limit: '50mb', extended: true }));  // Para dado
 app.use(express.static('public'));
 
 // Conexão com o MongoDB
-mongoose.connect(process.env.MONGO_URI)
+
+mongoose.connect(DB)
     .then(() => console.log('MongoDB Connected'))
     .catch(err => console.error('MongoDB connection error:', err)); 
 // Rotas
