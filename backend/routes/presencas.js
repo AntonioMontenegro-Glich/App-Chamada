@@ -5,12 +5,14 @@
 const express = require('express');
 const router = express.Router();
 const PresencasController = require('../controllers/PresencasController');
+const autenticPresenca = require('../middleware/autenticPresenca');
+
 //Comando utilizado para criar rotas (router.verboDoCrud) depois dentro do parentese colocar com barra para representar a rota
 //Depois referencie o Controller.VerboDoCrud
 //Quando for representar a rota com / se no crud for usado id referencie a rota com '/:id'
-router.get('/', PresencasController.getAllPresencas);
-router.post('/', PresencasController.createPresenca);
-router.put('/:id', PresencasController.updatePresenca);
-router.delete('/:id', PresencasController.deletePresenca);
+router.get('/', autenticPresenca, PresencasController.getAllPresencas);
+router.post('/', autenticPresenca, PresencasController.createPresenca);
+router.put('/:id', autenticPresenca, PresencasController.updatePresenca);
+router.delete('/:id', autenticPresenca, PresencasController.deletePresenca);
 //Exportando rotas para app.js que controla nossas dependencias e onde fica as configurações delas
 module.exports = router;
